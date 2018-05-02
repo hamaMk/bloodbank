@@ -1,20 +1,14 @@
 <?php
     include_once('head.php');
 ?>
-                <div class="container">
-                    <h3>Donors</h3>
-                    <hr>
-                    <br>
-
-                  <table style="width: 700px;" class="table-dark table-striped table-hover mx-auto">
+      <div class="container">
+            <h3>Blood stock</h3>
+            <hr>
+            <table style="width: 700px;" class="table-dark table-striped table-hover mx-auto">
                     <thead>
                         <tr>
-                          <th>Firstname</th>
-                          <th>Lastname</th>
                           <th>Blood type</th>
-                          <th>Age</th>
-                          <th>Sex</th>
-                          <th>Email</th>
+                          <th>Quantity</th>
                         </tr>
                       </thead>
                     <tbody>
@@ -32,7 +26,7 @@
                           die("Connection failed: " . $conn->connect_error);
                       }
 
-                      $sql = "SELECT  name, surname, blood_type, age, sex, email FROM donors";
+                      $sql = "SELECT  type, quantity FROM bank";
                       $result = $conn->query($sql);
 
                       if ($result->num_rows > 0) {
@@ -47,12 +41,9 @@
                                   <body>
                                     <div>
                                       <tr>
-                                        <td><?php echo $row["name"]; ?></td>
-                                        <td><?php echo $row["surname"]; ?></td>
-                                        <td><?php echo $row["blood_type"]; ?></td>
-                                        <td><?php echo $row["age"]; ?></td>
-                                        <td><?php echo $row["sex"]; ?></td>
-                                        <td><?php echo $row["email"]; ?></td>
+                                        <td><?php echo $row["type"]; ?></td>
+                                        <td><?php echo $row["quantity"]; ?></td>
+                                        
                                       </tr>
                                     </div>
                                   </body>
@@ -79,8 +70,8 @@
 
                     </tbody>
                   </table>
-                </div>
-                
+      </div>
+
 <?php
     include_once('tail.php');
 ?>         
